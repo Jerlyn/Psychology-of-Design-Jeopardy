@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology of Design Jeopardy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Psychology of Design Jeopardy</h1>
+            <div class="score-container">
+                <div class="player-score">
+                    <label for="player-name">Player Name:</label>
+                    <input type="text" id="player-name" value="Player 1">
+                    <p>Score: <span id="score">0</span></p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-board">
+                <div class="categories">
+                    <div class="category">Information</div>
+                    <div class="category">Meaning</div>
+                    <div class="category">Time</div>
+                    <div class="category">Memory</div>
+                </div>
+                <div class="questions-grid">
+                    <!-- Information Category -->
+                    <div class="question" data-category="Information" data-value="100" tabindex="0">$100</div>
+                    <div class="question" data-category="Information" data-value="200" tabindex="0">$200</div>
+                    <div class="question" data-category="Information" data-value="300" tabindex="0">$300</div>
+                    <div class="question" data-category="Information" data-value="400" tabindex="0">$400</div>
+                    <div class="question" data-category="Information" data-value="500" tabindex="0">$500</div>
+
+                    <!-- Meaning Category -->
+                    <div class="question" data-category="Meaning" data-value="100" tabindex="0">$100</div>
+                    <div class="question" data-category="Meaning" data-value="200" tabindex="0">$200</div>
+                    <div class="question" data-category="Meaning" data-value="300" tabindex="0">$300</div>
+                    <div class="question" data-category="Meaning" data-value="400" tabindex="0">$400</div>
+                    <div class="question" data-category="Meaning" data-value="500" tabindex="0">$500</div>
+
+                    <!-- Time Category -->
+                    <div class="question" data-category="Time" data-value="100" tabindex="0">$100</div>
+                    <div class="question" data-category="Time" data-value="200" tabindex="0">$200</div>
+                    <div class="question" data-category="Time" data-value="300" tabindex="0">$300</div>
+                    <div class="question" data-category="Time" data-value="400" tabindex="0">$400</div>
+                    <div class="question" data-category="Time" data-value="500" tabindex="0">$500</div>
+
+                    <!-- Memory Category -->
+                    <div class="question" data-category="Memory" data-value="100" tabindex="0">$100</div>
+                    <div class="question" data-category="Memory" data-value="200" tabindex="0">$200</div>
+                    <div class="question" data-category="Memory" data-value="300" tabindex="0">$300</div>
+                    <div class="question" data-category="Memory" data-value="400" tabindex="0">$400</div>
+                    <div class="question" data-category="Memory" data-value="500" tabindex="0">$500</div>
+                </div>
+            </div>
+        </main>
+
+        <div id="question-modal" class="modal" aria-modal="true" aria-labelledby="modal-title" role="dialog" hidden>
+            <div class="modal-content">
+                <h2 id="modal-title">Question</h2>
+                <p id="modal-question"></p>
+                <div class="answer-section">
+                    <label for="answer-input">Your Answer:</label>
+                    <input type="text" id="answer-input" aria-label="Enter your answer here">
+                    <button id="submit-answer">Submit</button>
+                    <button id="pass-question">Pass</button>
+                </div>
+                <div id="feedback" class="hidden"></div>
+                <div class="timer-container">
+                    <span>Time: </span>
+                    <span id="timer">30</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-over-modal" class="modal" aria-modal="true" aria-labelledby="game-over-title" role="dialog" hidden>
+            <div class="modal-content">
+                <h2 id="game-over-title">Game Over!</h2>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button id="restart-game">Play Again</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Based on <a href="https://growth.design/psychology" target="_blank" rel="noopener noreferrer">Psychology of Design</a> by Dan Benoni & Louis-Xavier Lavallée</p>
+            <button id="toggle-accessibility" aria-label="Toggle high contrast mode">High Contrast Mode</button>
+            <button id="toggle-font-size" aria-label="Toggle larger font size">Larger Font</button>
+        </footer>
+    </div>
+</body>
+</html>
