@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychology of Design Jeopardy</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
             <div class="score-container">
                 <div class="player-score">
                     <label for="player-name">Player Name:</label>
-                    <input type="text" id="player-name" value="Player 1">
+                    <input type="text" id="player-name" value="Player 1" aria-label="Enter player name">
                     <p>Score: <span id="score">0</span></p>
                 </div>
             </div>
@@ -60,14 +61,16 @@
             </div>
         </main>
 
-        <div id="question-modal" class="modal" aria-modal="true" aria-labelledby="modal-title" role="dialog" hidden>
+        <!-- Question Modal -->
+        <div id="question-modal" class="modal" aria-modal="true" aria-labelledby="modal-title" role="dialog">
             <div class="modal-content">
                 <h2 id="modal-title">Question</h2>
                 <p id="modal-question"></p>
                 <div class="answer-section">
-                    <label for="answer-input">Your Answer:</label>
-                    <input type="text" id="answer-input" aria-label="Enter your answer here">
-                    <button id="submit-answer">Submit</button>
+                    <p>Choose your answer:</p>
+                    <div id="multiple-choice-container" class="multiple-choice-container">
+                        <!-- Options will be added dynamically by JavaScript -->
+                    </div>
                     <button id="pass-question">Pass</button>
                 </div>
                 <div id="feedback" class="hidden"></div>
@@ -78,18 +81,35 @@
             </div>
         </div>
 
-        <div id="game-over-modal" class="modal" aria-modal="true" aria-labelledby="game-over-title" role="dialog" hidden>
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal" aria-modal="true" aria-labelledby="game-over-title" role="dialog">
             <div class="modal-content">
                 <h2 id="game-over-title">Game Over!</h2>
-                <p>Final Score: <span id="final-score">0</span></p>
+                <p>Your final Jeopardy score:</p>
+                <div id="final-score">0</div>
+                <div class="score-message"></div>
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="questions-answered">0</div>
+                        <div class="stat-label">Questions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="correct-answers">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                </div>
                 <button id="restart-game">Play Again</button>
+                <div class="action-buttons">
+                    <button class="secondary-action" id="share-score">Share Score</button>
+                </div>
             </div>
         </div>
 
         <footer>
             <p>Based on <a href="https://growth.design/psychology" target="_blank" rel="noopener noreferrer">Psychology of Design</a> by Dan Benoni & Louis-Xavier Lavallée</p>
-            <button id="toggle-accessibility" aria-label="Toggle high contrast mode">High Contrast Mode</button>
-            <button id="toggle-font-size" aria-label="Toggle larger font size">Larger Font</button>
+            <div class="accessibility-controls">
+                <button id="toggle-accessibility" aria-label="Toggle high contrast mode">High Contrast Mode</button>
+            </div>
         </footer>
     </div>
 </body>
